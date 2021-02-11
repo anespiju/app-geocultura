@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import '@geoman-io/leaflet-geoman-free';  
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ModalVideoComponent } from '../modal-video/modal-video.component';
 
 
 @Component({
@@ -28,7 +30,9 @@ export class MapaComponent implements OnInit {
   tileLayer:any=null;
   tileLayerGroup:any=null;
   MostrarInactivos:boolean=false;
-  constructor() { }
+
+  BsModalRef:BsModalRef;
+  constructor( private BsModalService:BsModalService) { }
 
   ngOnInit(): void {
 
@@ -38,6 +42,7 @@ export class MapaComponent implements OnInit {
 
     setTimeout(() => {
       this.GenerarMapa();
+      this.VerModalVideo();
     }, 100);
   }
   CargarShapeDB(){}
@@ -98,5 +103,12 @@ export class MapaComponent implements OnInit {
 
     document.getElementsByClassName("leaflet-pm-edit")[0].classList.toggle("active");
     document.getElementsByClassName("leaflet-pm-draw")[0].classList.toggle("active");
+  }
+  VerModalVideo(){
+    let config={
+      class:"modal-video modal-lg",
+      ignoreBackdropClick:true
+    }
+    this.BsModalRef=this.BsModalService.show(ModalVideoComponent,config)
   }
 }

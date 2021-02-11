@@ -1,18 +1,21 @@
 <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar" class="position-relative opt-mapa">
-            <div class="sidebar-header">
-                <img class="pt-2 logo-mapa" src="./assets/img/logo-cutura-square.png" alt="Ministerio de Transportes y Comunicaciones"/>
-                <div class="sub-titulo"></div>
-            </div>
-            <div class="pscroll" [perfectScrollbar]="config">
+        <div class="sidebar-header">
+            <img class="pt-2 logo-mapa" src="./assets/img/logo-cutura-square.png"
+                alt="Ministerio de Transportes y Comunicaciones" />
+            <div class="sub-titulo"></div>
+        </div>
+        <div class="pscroll" [perfectScrollbar]="config">
 
-                <div id="divFiltros" class="mt-4 pl-4 pr-4">
-                    <div class="text-center"><a href="javascript:void(0)" (click)="FlotanteUbigeo()"><i class="mdi mdi-map-outline"></i></a></div>
-                    <div class="text-center"><a href="javascript:void(0)" (click)="FlotanteCapa()"><i class="mdi mdi-layers"></i></a></div>
-                    <div class="text-center"><a href="javascript:void(0)"><i class="mdi mdi-chart-bar"></i></a></div>
-                    <div class="text-center"><a href="javascript:void(0)"><i class="mdi mdi-microsoft-excel"></i></a></div>
-                </div>
+            <div id="divFiltros" class="mt-4 pl-4 pr-4">
+                <div class="text-center"><a href="javascript:void(0)" (click)="FlotanteUbigeo()"><i
+                            class="mdi mdi-map-outline"></i></a></div>
+                <div class="text-center"><a href="javascript:void(0)" (click)="FlotanteCapa()"><i
+                            class="mdi mdi-layers"></i></a></div>
+                <div class="text-center"><a href="javascript:void(0)"><i class="mdi mdi-chart-bar"></i></a></div>
+                <div class="text-center"><a href="javascript:void(0)"><i class="mdi mdi-microsoft-excel"></i></a></div>
+            </div>
         </div>
     </nav>
 
@@ -26,34 +29,71 @@
     <div id="ubigeo" class="flotanteIz">
         <div class="header">
             <div class="title"><span>Ubigeo</span></div>
-            <div class="close"><a href="javascript:void(0)" (click)="FlotanteUbigeo()"><i class="mdi mdi-close"></i></a></div>
+            <div class="close"><a href="javascript:void(0)" (click)="FlotanteUbigeo()"><i class="mdi mdi-close"></i></a>
+            </div>
+        </div>
+        <div class="body">
+            <div class="row">
+                <div class="col-12">
+                    <label class="form-label">Departamento</label>
+                    <div class="input-group mb-3">
+                        <select class="form-control" aria-placeholder="">
+                            <option selected>-- Seleccione --</option>
+                        </select>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="mdi mdi-eye-off"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label class="form-label">Provincia</label>
+                    <div class="input-group mb-3">
+                        <select class="form-control">
+                            <option selected>-- Seleccione --</option>
+                        </select>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="mdi mdi-eye-off"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label class="form-label">Distrito</label>
+                    <div class="input-group mb-3">
+                        <select class="form-control">
+                            <option selected>-- Seleccione --</option>
+                        </select>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="mdi mdi-eye-off"></i></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div id="capa" class="flotanteIz">
         <div class="header">
             <div class="title"><span>Capas</span></div>
-            <div class="close"><a href="javascript:void(0)" (click)="FlotanteCapa()"><i class="mdi mdi-close"></i></a></div>
+            <div class="close"><a href="javascript:void(0)" (click)="FlotanteCapa()"><i class="mdi mdi-close"></i></a>
+            </div>
         </div>
     </div>
 
-    <div class="CapaTiles" >
-            <div style="width: max-content;">
-                <div class="botones-circulo btn-tiles" *ngFor="let item of tilesInactivos" (click)="SeleccionarTile(item)">
-                    <img [src]="item.img">
-                </div>            
+    <div class="CapaTiles">
+        <div style="width: max-content;">
+            <div class="botones-circulo btn-tiles" *ngFor="let item of tilesInactivos" (click)="SeleccionarTile(item)">
+                <img [src]="item.img">
+            </div>
 
             <div class="botones-circulo btn-tiles" *ngFor="let item of tilesActivos">
                 <img [src]="item.img">
             </div>
-            </div>
+        </div>
     </div>
 
     <div class="botones-circulo btn-leyenda">
-<i class="mdi mdi-palette-swatch"></i>
+        <i class="mdi mdi-palette-swatch"></i>
     </div>
     <div class="botones-circulo btn-herramientas" (click)="MostrarControles()">
-        <i class="mdi mdi-cog mdi-spin"></i>    
+        <i class="mdi mdi-cog mdi-spin"></i>
     </div>
 
 </div>

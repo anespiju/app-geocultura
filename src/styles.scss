@@ -14,11 +14,12 @@
 
 $font-stack: "Poppins", Helvetica, "sans-serif";
 $font-size-base:16;
+$font-color:#3F4254;
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
+$gray-400: #E4E6EF !default;
 $gray-500: #adb5bd !default;
 $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
@@ -91,6 +92,7 @@ $dark: $gray-800 !default;
 body{
     font-size: 13px;
     font-family: 'Poppins', sans-serif;
+    color:$font-color;
 }
 #content {
     width: calc(100% - 60px);
@@ -499,7 +501,7 @@ bs-datepicker-container{
         padding-top: 1.7rem;
         .title{
             color: $primary;
-            border-bottom: solid 3px #E4E6EF;
+            border-bottom: solid 3px $gray-400;
             padding-left: 1.05rem;
             padding-bottom: 0.7rem;
             span{
@@ -519,6 +521,23 @@ bs-datepicker-container{
                     background-color: $primary;
                     color: $white;
                 }
+            }
+        }
+    }
+    .body{
+        padding: 1.5rem 1.9rem;
+        .btn-outline-secondary{
+            border-color:$gray-400;
+            font-size: 22px;
+            line-height: 1;
+            color:$font-color;
+            background-color: transparent;
+            &:hover{
+                background-color: transparent;
+            }
+            &.active{
+                
+                color:$primary;
             }
         }
     }
@@ -675,4 +694,22 @@ a.leaflet-buttons-control-button:focus {
 }
 .leaflet-pm-edit.active, .leaflet-pm-draw.active{
     display: block;
+}
+.modal-video{
+    .modal-header{
+        button{
+            border: none;
+            color: &$secondary;
+            background-color: transparent;
+            &:hover{
+                color:$primary;
+            }
+        }
+    }
+}
+.modal {
+    z-index: 9999999;
+}
+.form-control:focus {
+    box-shadow: none;
 }
