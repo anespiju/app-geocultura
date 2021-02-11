@@ -24,6 +24,7 @@
     "@mdi/font": "^5.9.55",
     "@ng-select/ng-select": "^6.1.0",
     "@types/leaflet": "^1.5.21",
+    "bootstrap": "^5.0.0-beta2",
     "leaflet": "^1.7.1",
     "ngx-bootstrap": "^6.2.0",
     "ngx-perfect-scrollbar": "^10.1.0",
