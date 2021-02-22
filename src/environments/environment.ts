@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  host: 'http://209.145.52.225/CULTURA_DESA_WSMAPA/', // DESA CULTURA EXTERNO
 };
 
 /*
