@@ -6,7 +6,6 @@
       <div class="sub-titulo"></div>
     </div>
     <div class="pscroll" [perfectScrollbar]="config">
-
       <div id="divFiltros" class="mt-4 pl-4 pr-4">
         <div class="text-center"><a href="javascript:void(0)" (click)="FlotanteUbigeo()"><i
               class="mdi mdi-map-outline"></i></a></div>
@@ -33,9 +32,11 @@
     </div>
     <div class="body">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 mb-3">
           <label class="form-label">Departamento</label>
-          <div class="input-group mb-3">
+          <ng-select [items]=lstRegion placeholder="Seleccione" bindLabel="departamento" bindValue="cod_departamento"
+            notFoundText="no se ha encontrado ningún item" (change)="regionSeleccionado($event)"></ng-select>
+          <!-- <div class="input-group mb-3">
             <select class="form-control" aria-placeholder="" (change)="regionSeleccionado($event)">
               <option selected>-- Seleccione --</option>
               <option [value]="region.cod_departamento" *ngFor="let region of lstRegion">
@@ -44,13 +45,15 @@
             </select>
             <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
                 class="mdi mdi-eye-off"></i></button>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 mb-3">
           <label class="form-label">Provincia</label>
-          <div class="input-group mb-3">
+          <ng-select [items]=lstProvincia placeholder="Seleccione" bindLabel="provincia" bindValue="cod_provincia"
+            notFoundText="no se ha encontrado ningún item" (change)="provinciaSeleccionada($event)"></ng-select>
+          <!-- <div class="input-group mb-3">
             <select class="form-control" (change)="provinciaSeleccionada($event)">
               <option selected>-- Seleccione --</option>
               <option [value]="provincia.cod_provincia" *ngFor="let provincia of lstProvincia">
@@ -59,22 +62,24 @@
             </select>
             <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
                 class="mdi mdi-eye-off"></i></button>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <label class="form-label">Distrito</label>
-          <div class="input-group mb-3">
+          <ng-select [items]=lstDistrito placeholder="Seleccione" bindLabel="distrito" bindValue="cod_distrito"
+            notFoundText="No se ha encontrado ningún item" (change)="distritoSeleccionado($event)"></ng-select>
+          <!-- <div class="input-group mb-3">
             <select class="form-control" (change)="distritoSeleccionado($event)">
               <option selected>-- Seleccione --</option>
               <option [value]="distrito.cod_distrito" *ngFor="let distrito of lstDistrito">
                 {{distrito.distrito}}
               </option>
-            </select>
+            </select> 
             <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
                 class="mdi mdi-eye-off"></i></button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -84,6 +89,13 @@
     <div class="header">
       <div class="title"><span>Capas</span></div>
       <div class="close"><a href="javascript:void(0)" (click)="FlotanteCapa()"><i class="mdi mdi-close"></i></a>
+      </div>
+    </div>
+  </div>
+  <div id="buscador" class="flotanteCnt">
+    <div class="col-12">
+      <div class="input-group mb-3">
+        <input type="text" name="buscador-principal" id="buscador-principal">
       </div>
     </div>
   </div>

@@ -19,7 +19,8 @@ export class MapaComponent implements OnInit {
   item: any = null;
   estados = [];
   config = {
-    suppressScrollX: false
+    suppressScrollX: false,
+    
   };
   map: any;
 
@@ -56,7 +57,7 @@ export class MapaComponent implements OnInit {
 
     setTimeout(() => {
       this.GenerarMapa();
-      this.VerModalVideo();
+      // this.VerModalVideo();
     }, 100);
 
     this.cargarCombosUbigeo();
@@ -113,6 +114,7 @@ export class MapaComponent implements OnInit {
   }
 
   addGeojson() {
+    this.removeGeojson();
     var twkbBuffer = [];
     var geojsonFeaturePolygon = [];
     let geometry;
@@ -120,8 +122,7 @@ export class MapaComponent implements OnInit {
     let data = this.dataShape.geometria;
 
     twkbBuffer = new Buffear((data).substring(2, data.length), 'hex');
-    console.log(twkbBuffer);
-    geometry = wkx.Geometry.parseTwkb(twkbBuffer);
+    geometry = wkx.Geometry.parse(twkbBuffer);
     let geo = geometry.toGeoJSON();
     geojsonFeaturePolygon.push({
       type: "Feature",
@@ -212,12 +213,12 @@ export class MapaComponent implements OnInit {
   }
 
   regionSeleccionado(codRegion: any) {
-    if (codRegion.target != undefined) {
-      let item = codRegion.target;
+    if (codRegion != undefined) {
+      let item = codRegion.cod_departamento;
       this.lstProvincia = [];
       this.lstDistrito = [];
-      this.lstProvincia = this.lstProvinciaData.filter(c => c.cod_departamento == item.value);
-      this.CargarShapeDB(item.value);
+      this.lstProvincia = this.lstProvinciaData.filter(c => c.cod_departamento == item);
+      this.CargarShapeDB(item);
 
     } else {
       this.lstProvincia = [];
@@ -225,21 +226,21 @@ export class MapaComponent implements OnInit {
     }
   }
 
-  provinciaSeleccionada(codProvincia) {
-    if (codProvincia.target != undefined) {
-      let item = codProvincia.target;
+  provinciaSeleccionada(codProvincia: any) {
+    if (codProvincia != undefined) {
+      let item = codProvincia.cod_provincia;
       this.lstDistrito = [];
-      this.lstDistrito = this.lstDistritoData.filter(c => c.cod_provincia == item.value);
-      this.CargarShapeDB(item.value);
+      this.lstDistrito = this.lstDistritoData.filter(c => c.cod_provincia == item);
+      this.CargarShapeDB(item);
     } else {
       this.lstDistrito = [];
     }
   }
 
   distritoSeleccionado(codDistrito: any) {
-    if (codDistrito.target != undefined) {
-      let item = codDistrito.target;
-      this.CargarShapeDB(item.value);
+    if (codDistrito != undefined) {
+      let item = codDistrito.cod_distrito;
+      this.CargarShapeDB(item);
     }
   }
 }

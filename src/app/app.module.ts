@@ -9,6 +9,8 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { ModalVideoComponent } from './modal-video/modal-video.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     PerfectScrollbarModule,
     ModalModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    NgHttpLoaderModule.forRoot(),
+    FormsModule,
+    NgSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
