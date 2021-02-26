@@ -108,7 +108,16 @@ export class MapaComponent implements OnInit {
     this.map.pm.addControls({
       position: 'bottomright',
       drawCircle: false,
+      drawCircleMarker:false,
+      cutPolygon:false,
+      editMode:false,
+      drawRectangle:false,
+      oneBlock:true
     });
+
+
+    // this.map.pm.Toolbar.changeControlOrder(['dragMode', 'removalMode', 'drawMarker','drawPolyline', 'drawPolygon']);  
+
 
     this.CargarShapeDB('');
   }
@@ -200,8 +209,12 @@ export class MapaComponent implements OnInit {
   }
 
   MostrarControles() {
-    document.getElementsByClassName("leaflet-pm-edit")[0].classList.toggle("active");
-    document.getElementsByClassName("leaflet-pm-draw")[0].classList.toggle("active");
+
+    let botones: HTMLCollection = document.getElementsByClassName("of-setting");
+    for (let index = 0; index < botones.length; index++) {
+      botones[index].classList.toggle("active")
+    }
+    this.MostrarControlesMapa();
   }
 
   VerModalVideo() {
@@ -243,4 +256,8 @@ export class MapaComponent implements OnInit {
       this.CargarShapeDB(item);
     }
   }
+  MostrarControlesMapa() {
+    document.getElementsByClassName("leaflet-pm-toolbar")[0].classList.toggle("active");
+  }
+
 }

@@ -617,6 +617,26 @@ a {
   cursor: pointer;
 }
 
+.btn-subir-shape {
+  right: 40px;
+  bottom: 160px;
+  background-color: $primary;
+  cursor: pointer;
+}
+.btn-exportar {
+  right: 40px;
+  bottom: 220px;
+  background-color: $primary;
+  cursor: pointer;
+}
+.btn-mas-opciones {
+  right: 40px;
+  bottom: 100px;
+  background-color: $primary;
+  cursor: pointer;
+}
+
+
 ///////////@at-root
 .leaflet-pm-toolbar .button-container:first-child .leaflet-buttons-control-button {
   border-radius: 2px 2px 0 0 !important;
@@ -699,14 +719,23 @@ a {
 a.leaflet-buttons-control-button:focus {
   outline: none;
 }
-.leaflet-pm-edit,
-.leaflet-pm-draw {
+.leaflet-pm-toolbar{
+  right: 88px;
+  bottom: 70px;
   display: none;
+  &.active{
+    display: block;
+
+  }
 }
-.leaflet-pm-edit.active,
-.leaflet-pm-draw.active {
-  display: block;
+.of-setting{
+  display: none;
+  &.active{
+    display: flex;
+  }
 }
+
+
 .modal-video {
   .modal-header {
     button {
@@ -724,4 +753,7 @@ a.leaflet-buttons-control-button:focus {
 }
 .form-control:focus {
   box-shadow: none;
+}
+.button-container{
+    display: inline-block;
 }
