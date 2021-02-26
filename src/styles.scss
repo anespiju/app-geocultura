@@ -743,3 +743,33 @@ a.leaflet-buttons-control-button:focus {
 .button-container{
     display: inline-block;
 }
+
+.leaflet-pm-actions-container{
+  top: -40px !important;
+  left: -50% !important;
+  transform: translateX(-50%);
+  margin-left: 100%;
+  /* text-align: center; */
+  /* display: flex !important; */
+  width: fit-content;
+  right: 0;
+  a{
+    //display: block !important;
+    margin: auto;
+    display: inline-block !important;
+    width: auto !important;;
+    height: auto !important;
+    border:none !important;
+  }
+  &:after{
+    content: "";
+    height: 20px;
+    width: 20px;
+    background-color: #666666;
+    transform: translateX(-50%) rotate(133deg);
+    left: 50%;
+    bottom: 2px;
+    position: absolute;
+    z-index: -1;
+  }
+}

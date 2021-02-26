@@ -114,7 +114,7 @@ export class MapaComponent implements OnInit {
       drawRectangle:false,
       oneBlock:true
     });
-
+    this.map.pm.setLang('es');  
 
     // this.map.pm.Toolbar.changeControlOrder(['dragMode', 'removalMode', 'drawMarker','drawPolyline', 'drawPolygon']);  
 
