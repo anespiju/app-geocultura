@@ -214,7 +214,12 @@ export class MapaComponent implements OnInit {
     for (let index = 0; index < botones.length; index++) {
       botones[index].classList.toggle("active")
     }
-    this.MostrarControlesMapa();
+    //this.MostrarControlesMapa();
+
+    if(document.getElementsByClassName("leaflet-pm-toolbar")[0].classList.contains("active")){
+      document.getElementsByClassName("leaflet-pm-toolbar")[0].classList.remove("active");
+    };
+    //
   }
 
   VerModalVideo() {
