@@ -57,7 +57,7 @@ export class MapaComponent implements OnInit {
 
     setTimeout(() => {
       this.GenerarMapa();
-      // this.VerModalVideo();
+      this.VerModalVideo();
     }, 100);
 
     this.cargarCombosUbigeo();
